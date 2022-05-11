@@ -3,8 +3,7 @@ import Searchbar from "./Searchbar.vue";
 </script>
 
 <template>
-    <Searchbar/>
+	<Searchbar />
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>

@@ -7,30 +7,30 @@ import Searchbar from "./components/Searchbar.vue";
 </script>
 
 <template>
-  <div className="main-container">
-    <div className="sidebar-container">
-      <Sidebar />
-    </div>
-    <div className="cards-container">
-      <Searchbar />
-      <Cards />
-    </div>
-  </div>
+	<div className="main-container">
+		<div className="sidebar-container">
+			<Sidebar />
+		</div>
+		<div className="cards-container">
+			<Searchbar />
+			<Cards />
+		</div>
+	</div>
 </template>
 
 <style scoped>
 .main-container {
-  display: flex;
-  background-color: #113536;
-  gap: 23px;
-  /* min-height: auto; */
+	display: flex;
+	background-color: #113536;
+	gap: 23px;
+	/* min-height: auto; */
 }
 .sidebar-container {
-  flex: 1;
-  background-color: #112123;
+	flex: 1;
+	background-color: #112123;
 }
 .cards-container {
-  flex: 3.5;
+	flex: 3.5;
 }
 </style>
 
@@ -38,9 +38,9 @@ import Searchbar from "./components/Searchbar.vue";
 body,
 html,
 #app {
-  /* height: 100%; */
-  /* min-height: 1000px; */
-  margin: 0;
-  background-color: red;
+	/* height: 100%; */
+	/* min-height: 1000px; */
+	margin: 0;
+	background-color: red;
 }
 </style>
