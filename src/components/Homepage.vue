@@ -1,9 +1,42 @@
-<script setup lang="ts">
-import Searchbar from "./Searchbar.vue";
-</script>
-
 <template>
-	<Searchbar />
+	<v-container class>
+		
+		<Searchbar />
+		
+		<v-row align-items="right">
+			<v-col v-for="_ in 10">
+				<Card
+					bg="https://media.discordapp.net/attachments/747692657131651175/973511976665899028/20220510_043136.jpg" 
+					icon="https://cdn.discordapp.com/emojis/921067306363289640.webp?size=128&quality=lossless"
+					title="Blon"
+					last_played="3/6/23"
+					last_saved="3/6/23"
+					/>
+			</v-col>
+			
+		</v-row>
+	</v-container>
 </template>
 
-<style scoped></style>
+<style scoped>
+</style>
+
+<script lang="ts">
+import Card from "@/components/Card.vue";
+import Searchbar from "@/components/Searchbar.vue";
+
+export default ({
+  name: 'Homepage',
+
+  data () {
+    return {
+      
+    }
+  },
+  components: {
+    Card,
+    Searchbar
+  }
+})
+
+</script>

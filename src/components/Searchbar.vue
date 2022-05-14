@@ -25,7 +25,7 @@
 	font-size: 1rem;
 	border: none;
 	flex: 15;
-	background: #112123;
+	background: #111D2C;
 	color: white;
 	border-top-left-radius: 0.5rem;
 	border-bottom-left-radius: 0.5rem;
@@ -37,7 +37,7 @@
 .submit {
 	outline: none;
 	flex: 1;
-	background: #112123;
+	background: #111D2C;
 	padding: 1rem;
 	color: white;
 	border-top-right-radius: 0.5rem;

@@ -1,26 +1,25 @@
 <template>
   <v-app>
+
+    <NavDrawer />
+
     <v-main>
-      <HelloWorld/>
+      <router-view></router-view>
     </v-main>
+
   </v-app>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
+import NavDrawer from '@/components/NavDrawer.vue'
 
-export default defineComponent({
+export default ({
   name: 'App',
-
   components: {
-    HelloWorld,
+    NavDrawer
   },
-
   data () {
-    return {
-      //
-    }
+    return {}
   },
 })
 </script>

@@ -1,12 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import HomePage from '@/components/Homepage.vue'
+import AboutPage from '@/components/Aboutpage.vue'
 
 export default createRouter({
   history: createWebHistory(),
   routes: [
     {
       path: '/',
-      component: HelloWorld,
+      name: 'Home',
+      component: HomePage,
+    },
+    {
+      path: '/about',
+      name: 'About',
+      component: AboutPage,
     }
   ]
 })
