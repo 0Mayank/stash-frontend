@@ -10,13 +10,11 @@
         
         <v-card-actions v-if="last_played">
             <v-btn class="act-btn" rounded>
-                <!-- this icon? -->
-                <v-icon>mdi-rhombus-medium</v-icon>
+                <v-icon>mdi-circle-medium</v-icon>
                 Last Played: {{ last_played }}
             </v-btn>
             <v-spacer/>
             <v-btn class="act-btn" rounded>
-                <!-- or this icon? -->
                 <v-icon>mdi-circle-medium</v-icon>
                 Last Saved: {{ last_saved }}
             </v-btn>

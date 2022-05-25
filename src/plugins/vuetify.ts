@@ -12,18 +12,15 @@ import { ThemeDefinition } from 'vuetify'
 const darkTheme = {
   dark: true,
   colors: {
-    background: '#112A45',
-    primary: '#111D2C',
-    accent: '#65B7F3',
+    background: '#24163A',
+    primary: '#1A1325',
+    accent: '#928BE6',
     text: '#FFFFFF'
   }
 }
 
 export default createVuetify({
-    icons: {
-      defaultSet: 'mdi',
-    },
-    theme: {
+  theme: {
       defaultTheme: 'darkTheme',
       themes: {
         darkTheme
