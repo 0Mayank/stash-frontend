@@ -25,18 +25,18 @@ export default ({
 </script>
 
 <style>
-.slide-fade-enter {
-  transform: translateX(10px);
+.expand-enter {
+  transform: translateY(-10px);
   opacity: 0;
 }
 
-.slide-fade-enter-active,
-.slide-fade-leave-active {
-  transition: all 0.2s ease;
+.expand-active,
+.expand-leave-active {
+  transition: all 0.2s ease-in;
 }
 
-.slide-fade-leave-to {
-  transform: translateX(-10px);
+.expand-leave-to {
+  transform: translateY(+10px);
   opacity: 0;
 }
 </style>

@@ -1,37 +1,46 @@
 <template>
     <v-hover v-slot="{ isHovering, props }">    
-        <v-card width="310" class="rounded-card pa-1 ma-3" color="primary" v-bind="props">
-            
-            <v-img class="rounded-card" cover aspect-ratio="0.6666667" :src="bg"></v-img>
-            
-            <div v-if="isHovering" class="overlay rounded-card"></div>
+        <div>    
+            <v-card width="310" class="rounded-card pa-1 ma-3" color="primary" v-bind="props">
+                <v-img class="rounded-card" cover aspect-ratio="0.6666667" :src="bg"></v-img>
+                
+                <transition
+                    @before-enter="beforeEnter"
+                    @enter="enter"
+                    @leave="leave"
+                    :css="false"
+                >
+                    <div v-if="isHovering" class="rounded-card overlay">   
+                        <!-- <div class="overlay rounded-card"></div> -->
+                        <!-- <v-sheet class="game-icon rounded-card" width="60" color="primary" elevation="7">
+                            <v-img class="rounded-card" width="60" :src="icon"></v-img>
+                        </v-sheet> -->
+                        
 
-            <transition name="slide-fade">
-                <div v-if="isHovering" class="hover-div rounded-card">   
-                    <!-- <v-sheet class="game-icon rounded-card" width="60" color="primary" elevation="7">
-                        <v-img class="rounded-card" width="60" :src="icon"></v-img>
-                    </v-sheet> -->
-
-                    <v-card-title class="text-h5 font-weight-bold">{{ title }}</v-card-title>
-                    
-                    <v-card-actions v-if="last_played">
-                        <v-btn class="act-btn" rounded>
-                            <v-icon>mdi-circle-medium</v-icon>
-                            Last Played: {{ last_played }}
-                        </v-btn>
-                        <v-spacer/>
-                        <v-btn class="act-btn" rounded>
-                            <v-icon>mdi-circle-medium</v-icon>
-                            Last Saved: {{ last_saved }}
-                        </v-btn>
-                    </v-card-actions>
-                </div>
-            </transition>
-        </v-card>
+                        <v-card-title class="text-h5 font-weight-bold title">{{ title }}</v-card-title>
+                        
+                        <v-card-actions class="actions" v-if="last_played">
+                            <v-btn class="act-btn" rounded>
+                                <v-icon>mdi-circle-medium</v-icon>
+                                Last Played: {{ last_played }}
+                            </v-btn>
+                            <v-spacer/>
+                            <v-btn class="act-btn" rounded>
+                                <v-icon>mdi-circle-medium</v-icon>
+                                Last Saved: {{ last_saved }}
+                            </v-btn>
+                        </v-card-actions>
+                    </div>
+                </transition>
+                
+            </v-card>
+        </div>
     </v-hover>
 </template>
 
 <script lang="ts">
+import Velocity from 'velocity-animate'
+
 export default {
     props: {
         bg: {
@@ -54,6 +63,26 @@ export default {
             type: String,
             default: null
         }
+    },
+    methods: {
+        beforeEnter(el: { style: any }) {
+            el.style.opacity = 0
+            el.style.height = '0em'
+        },
+        enter(el: any, done: any) {
+            Velocity(
+                el, 
+                {opacity: 1, height: '100%'},
+                {duration: 500, easing: 'easeOutCubic', complete: done}
+            )
+        },
+        leave(el: any, done: any) {
+            Velocity(
+                el, 
+                {opacity: 0, height: '20%'},
+                {duration: 100, easing: 'easeInCubic', complete: done}
+            )
+        }
     }
 }
 </script>
@@ -72,15 +101,22 @@ export default {
 }
 
 .overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 310;
     background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
-    width: 100%;
-    height: 50%;
-    margin-top: -226.5px;
-    transform: translate(0, 0);
 }
 
-.hover-div {
-    margin-top: -100px;
-    transform: translate(0, 0);
+.title {
+    position: absolute;
+    bottom: 50px;
+}
+
+.actions {
+    position: absolute;
+    bottom: 0px;
 }
 </style>
